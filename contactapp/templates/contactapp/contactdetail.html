@@ -1,0 +1,35 @@
+{% include 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <div class="jumbotron">
+    <h2> My Profile</h2>
+    <table style="width:100%">
+       <tr>
+           <th>Profile</th>
+           <th>Name</th>
+           <th>Profession</th>
+           <th>Email</th>
+           <th>Phone</th>
+           <th>Address</th>
+       </tr>
+          <tr>
+             <td id="img"> <img src="{{ mydetail.profile.url }}" width="100"></td>
+             <td>{{ mydetail.name }}</td>
+             <td>{{ mydetail.profession }}</td>
+             <td>{{ mydetail.name.email }}</td>
+             <td>{{ mydetail.phone }}</td>
+             <td>{{ mydetail.address }}</td>
+          </tr>
+     </table>
+     {% if permission == "yes" %}
+       <div class=" edit mt-3">
+           <a class="btn btn-info" href="{% url 'contactapp:updatecontact' pk=mydetail.id %}">Update</a>
+           <a class="btn btn-info" href="{% url 'contactapp:deletecontact' pk=mydetail.id %}">Delete</a>
+       </div>
+     </div>
+     {% endif %}
+  </div>
+</div>
+
+
+{% endblock %}

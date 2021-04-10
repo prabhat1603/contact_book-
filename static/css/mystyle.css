@@ -1,0 +1,23 @@
+
+td, th {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+.container {
+  text-align: center;
+  color:#3d827a;
+}
+
+#img img{
+  height: 100px;
+  border-radius: 50%;
+}
+
+.edit{
+  display: flex;
+  justify-content: space-between;
+}

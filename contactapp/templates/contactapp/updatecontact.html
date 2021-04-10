@@ -1,0 +1,13 @@
+{% load bootstrap4 %}
+{% include 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <div class="jumbotron jumbotron-fluid">
+    <form style="size:10px;" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% bootstrap_form updateform %}
+      <input class="btn btn-info" type="submit" value="Update">
+    </form>
+  </div>
+</div>
+{% endblock %}

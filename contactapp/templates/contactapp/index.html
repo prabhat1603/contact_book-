@@ -1,0 +1,38 @@
+{% include 'home.html' %}
+{% block content %}
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">Contact Book</a>
+  <form  class="form-inline" method="get">
+     <input style="width:300px" class="form-control mr-sm-3" id="tags" type="search" name="searched" placeholder="Search by Name or Email">
+     <span class="input-group-btn">
+       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+     </span>
+  </form>
+  <a class="btn btn-info" href="{% url 'logout' %}">Logout</a>
+</nav>
+<div class="container mt-5">
+    <h2> Contact Book</h2>
+    <table style="width:100%;">
+       <tr>
+           <th>Profile</th>
+           <th>Name</th>
+           <th>Profession</th>
+           <th>Email</th>
+           <th>Phone</th>
+           <th>Address</th>
+           <th>Visit</th>
+       </tr>
+       {% for contact in contacts %}
+          <tr>
+             <td id="img"> <img src="{{ contact.profile.url }}" width="100"> </td>
+             <td>{{ contact.name }}</td>
+             <td>{{ contact.profession }}</td>
+             <td>{{ contact.name.email }}</td>
+             <td>{{ contact.phone }}</td>
+             <td>{{ contact.address }}</td>
+             <td> <a class="btn btn-info" href="{% url 'contactapp:contactdetail' pk=contact.id %}">View</a></td>
+          </tr>
+       {% endfor %}
+     </table>
+</div>
+{% endblock %}

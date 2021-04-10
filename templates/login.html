@@ -1,0 +1,14 @@
+{% load bootstrap4 %}
+{% include 'home.html' %}
+{% block content %}
+<div class="container mt-5">
+  <div class="jumbotron">
+    <form method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <input class="btn btn-info" type="submit" value="LogIn">
+    </form>
+  </div>
+</div>
+
+{% endblock %}
